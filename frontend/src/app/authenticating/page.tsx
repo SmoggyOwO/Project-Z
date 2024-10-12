@@ -1,12 +1,11 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import Cookies from "js-cookie";
 
-export default function Page() {
+function AuthContent() {
     const router = useRouter();
-
     const searchParams = useSearchParams();
     const code = searchParams.get("code");
 
@@ -20,9 +19,7 @@ export default function Page() {
                         headers: {
                             "Content-Type": "application/json",
                         },
-                        body: JSON.stringify({
-                            code,
-                        }),
+                        body: JSON.stringify({ code }),
                     }
                 );
 
@@ -30,16 +27,19 @@ export default function Page() {
                 const accessToken = data.accessToken;
 
                 Cookies.set("token", accessToken);
-
                 router.push("/dashboard");
             }
         };
         auth();
-    }, []);
+    }, [code, router]);
 
+    return <div className="fillPage">Authenticating...</div>;
+}
+
+export default function Page() {
     return (
-        <>
-            <div className="fillPage">Authenticating...</div>
-        </>
+        <Suspense fallback={<div>Loading...</div>}>
+            <AuthContent />
+        </Suspense>
     );
 }
