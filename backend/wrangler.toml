@@ -25,3 +25,8 @@ compatibility_flags = [ "nodejs_compat" ]
 # [observability]
 # enabled = true
 # head_sampling_rate = 1
+
+[vars]
+GITHUB_CLIENT_ID = "Ov23liJGYuKA3LiRH6AM"
+GITHUB_CLIENT_SECRET = "74ef2c4ab8627e237f8bbd1a67870a0480a81672"
+FRONTEND_URL="http://localhost:3000"
