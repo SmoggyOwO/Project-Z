@@ -3,10 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-    const [apiData, setData] = useState("Loading...");
-
-    console.log(process.env.NEXT_PUBLIC_BACKEND_URI);
-
+    let [apiData, setData] = useState("Loading...");
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_BACKEND_URI}/api/home`)
         .then((res) => {
@@ -15,8 +12,17 @@ export default function Home() {
         .then((data) => {
             setData(data);
         })
+        .finally(() => {
+            console.log(apiData);
+        })
+
     }, [])
   return (
-    <>Response from backend : {apiData}</>
+    <>
+        <section className="main">
+            <h1>Project-Z</h1>
+            <p>Coming Soon</p>
+        </section>
+    </>
   );
 }
