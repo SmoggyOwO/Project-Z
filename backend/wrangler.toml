@@ -1,7 +1,7 @@
 name = "backend"
 main = "src/index.ts"
 compatibility_date = "2024-10-11"
-compatibility_flags = [ "nodejs_compat" ]
+compatibility_flags = ["nodejs_compat"]
 
 # [vars]
 # MY_VAR = "my-variable"
@@ -29,4 +29,5 @@ compatibility_flags = [ "nodejs_compat" ]
 [vars]
 GITHUB_CLIENT_ID = "Ov23liJGYuKA3LiRH6AM"
 GITHUB_CLIENT_SECRET = "74ef2c4ab8627e237f8bbd1a67870a0480a81672"
-FRONTEND_URL="http://localhost:3000"
+FRONTEND_URL = "https://project-z-five-sandy.vercel.app/"
+# FRONTEND_URL="http://localhost:3000"
